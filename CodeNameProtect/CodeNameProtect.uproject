@@ -1,13 +1,16 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{39DFE0BD-4FA0-F57F-3C60-0D91A35593CB}",
+	"EngineAssociation": "{DE8F0D25-4734-DA34-ECFD-008257EB35C6}",
 	"Category": "",
 	"Description": "",
 	"Modules": [
 		{
 			"Name": "CodeNameProtect",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
 		}
 	]
 }
