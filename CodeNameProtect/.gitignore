@@ -84,3 +84,4 @@ Makefile
 *.pro
 *.kdev4
 *.code-workspace
+*.workspace
