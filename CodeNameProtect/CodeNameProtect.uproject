@@ -1,19 +1,31 @@
 {
 	"FileVersion": 3,
+<<<<<<< HEAD
 	"EngineAssociation": "4.26",
+=======
+	"EngineAssociation": "{39DFE0BD-4FA0-F57F-3C60-0D91A35593CB}",
+>>>>>>> 4b93a1ce1bbaf7ee55c26857f33f79b552e456b9
 	"Category": "",
 	"Description": "",
 	"Modules": [
 		{
 			"Name": "CodeNameProtect",
 			"Type": "Runtime",
+<<<<<<< HEAD
 			"LoadingPhase": "Default"
+=======
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
+>>>>>>> 4b93a1ce1bbaf7ee55c26857f33f79b552e456b9
 		}
 	],
 	"Plugins": [
 		{
 			"Name": "ApexDestruction",
 			"Enabled": true
+<<<<<<< HEAD
 		},
 		{
 			"Name": "AdvancedSessions",
@@ -22,6 +34,8 @@
 		{
 			"Name": "AdvancedSteamSessions",
 			"Enabled": true
+=======
+>>>>>>> 4b93a1ce1bbaf7ee55c26857f33f79b552e456b9
 		}
 	]
 }

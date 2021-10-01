@@ -77,3 +77,11 @@ Content/StarterContent/*
 
 # Build
 Build/*
+
+Makefile
+*.pri
+*.txt
+*.pro
+*.kdev4
+*.code-workspace
+*.workspace
