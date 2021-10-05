@@ -77,3 +77,14 @@ Content/StarterContent/*
 
 # Build
 Build/*
+
+.ignore
+.kdev4/
+.vscode/
+*.txt
+*.code-workspace
+*.kdev4
+*.pro
+*.workspace
+*.pri
+Makefile
