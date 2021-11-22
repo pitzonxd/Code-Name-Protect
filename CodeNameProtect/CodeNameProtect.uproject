@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{00044F61-08D9-A69D-FBD5-436A9287615E}",
+	"EngineAssociation": "4.26",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -21,6 +21,10 @@
 		},
 		{
 			"Name": "AdvancedSteamSessions",
+			"Enabled": true
+		},
+		{
+			"Name": "Landmass",
 			"Enabled": true
 		}
 	]
