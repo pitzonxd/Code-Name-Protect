@@ -57,6 +57,8 @@ bool URecursiveSpawningCPP::stepOn(FVector position) {
 
     int tmp = pos.X * rows + pos.Y; 
 
+    UE_LOG(LogTemp, Warning, TEXT("tmp, %d, %d"), pos.X, pos.Y);
+
     if(tmp >= 0 && tmp < 100 && position.X >= realOrigin.X && position.X <= (realOrigin.X + rows * 200) && position.Y >= realOrigin.Y && position.Y <= (realOrigin.Y + rows * 200)){
         allPads[pos.X * rows + pos.Y].uncovered = true;
         return true;
