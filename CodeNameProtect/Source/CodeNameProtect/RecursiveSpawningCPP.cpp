@@ -133,3 +133,23 @@ TArray<FVector> URecursiveSpawningCPP::uncoverTick() {
 
 	return result;
 }
+
+void URecursiveSpawningCPP::reset() {
+    for(int i = 0; i < rows; i++) {
+        for(int j = 0; j < cols; j++) {
+            allPads[i * rows + 1].uncovered = false;
+        }
+    }
+}
+
+bool URecursiveSpawningCPP::isValidPosition(FVector pos) {
+
+    FIntVector position = translatePositionToRowsAndCols(pos.X, pos.Y, pos.Z);
+
+    if(position.X >= 0 && position.Y >= 0 && position.X < rows && position.Y < cols) {
+        return true;
+    }
+
+    return false;
+
+}
