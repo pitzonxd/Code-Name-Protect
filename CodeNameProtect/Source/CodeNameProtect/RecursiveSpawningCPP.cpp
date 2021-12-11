@@ -48,23 +48,22 @@ void URecursiveSpawningCPP::initializeVariables(FVector pRealOrigin, int pRows, 
             addedStruct.Z = pos.Z;
 
             allPads.Add(addedStruct);
+
+            UE_LOG(LogTemp, Warning, TEXT("tmp, %d, %d"), i, j);
         }
     }
+
+    UE_LOG(LogTemp, Warning, TEXT("tmp, %d"), allPads.Num());
 }
 
 bool URecursiveSpawningCPP::stepOn(FVector position) {
     FIntVector pos = translatePositionToRowsAndCols(position.X, position.Y, position.Z);
 
-    int tmp = pos.X * rows + pos.Y; 
-
-    UE_LOG(LogTemp, Warning, TEXT("tmp, %d, %d"), pos.X, pos.Y);
-
-    if(tmp >= 0 && tmp < 100 && position.X >= realOrigin.X && position.X <= (realOrigin.X + rows * 200) && position.Y >= realOrigin.Y && position.Y <= (realOrigin.Y + rows * 200)){
-        allPads[pos.X * rows + pos.Y].uncovered = true;
-        return true;
-    }
+    int tmp = pos.X * cols + pos.Y; 
     
-    return false;
+    allPads[pos.X * cols + pos.Y].uncovered = true;
+    return true;
+
 }
 
 FVector URecursiveSpawningCPP::translateRowsAndColsToPosition(int pRow, int pCol) {
@@ -94,23 +93,23 @@ TArray<FVector> URecursiveSpawningCPP::uncoverTick() {
     for(int i = 0; i < rows; i++) {
         for(int j = 0; j < cols; j++) {
 
-            if(!allPads[i * rows + j].uncovered) {
-                if(i > 0 && allPads[(i-1) * rows + j].uncovered) {
+            if(!allPads[i * cols + j].uncovered) {
+                if(i > 0 && allPads[(i-1) * cols + j].uncovered) {
                     FVector loc = translateRowsAndColsToPosition(i, j);
                     result.Add(loc);
                     changedPositions.Add(FIntVector(i, j, 0));
                 }
-                if(i < (rows-1) && allPads[(i+1) * rows + j].uncovered) {
+                if(i < (rows-1) && allPads[(i+1) * cols + j].uncovered) {
                     FVector loc = translateRowsAndColsToPosition(i, j);
                     result.Add(loc);
                     changedPositions.Add(FIntVector(i, j, 0));
                 }
-                if(j > 0 && allPads[i * rows + (j-1)].uncovered) {
+                if(j > 0 && allPads[i * cols + (j-1)].uncovered) {
                     FVector loc = translateRowsAndColsToPosition(i, j);
                     result.Add(loc);
                     changedPositions.Add(FIntVector(i, j, 0));
                 }
-                if(j < (cols-1) && allPads[i * rows + (j+1)].uncovered) {
+                if(j < (cols-1) && allPads[i * cols + (j+1)].uncovered) {
                     FVector loc = translateRowsAndColsToPosition(i, j);
                     result.Add(loc);
                     changedPositions.Add(FIntVector(i, j, 0));
@@ -121,7 +120,7 @@ TArray<FVector> URecursiveSpawningCPP::uncoverTick() {
     }
 
     for(int k = 0; k < changedPositions.Num(); k++) {
-        allPads[changedPositions[k].X * rows + changedPositions[k].Y].uncovered = true;
+        allPads[changedPositions[k].X * cols + changedPositions[k].Y].uncovered = true;
     }
 
 
@@ -137,7 +136,7 @@ TArray<FVector> URecursiveSpawningCPP::uncoverTick() {
 void URecursiveSpawningCPP::reset() {
     for(int i = 0; i < rows; i++) {
         for(int j = 0; j < cols; j++) {
-            allPads[i * rows + 1].uncovered = false;
+            allPads[i * cols + 1].uncovered = false;
         }
     }
 }
@@ -152,4 +151,15 @@ bool URecursiveSpawningCPP::isValidPosition(FVector pos) {
 
     return false;
 
+}
+
+FVector URecursiveSpawningCPP::calculateOffset(FVector gridLocation) {
+
+    float posX = (float)((int)gridLocation.X % 200) - 100.0;
+    float posY = (float)((int)gridLocation.Y % 200) - 100.0;
+
+    if(this->rows % 2 != 0) posX += 100.0;
+    if(this->cols % 2 != 0) posY += 100.0;
+
+    return FVector(posX, posY, 0.0f);
 }

@@ -68,6 +68,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool isValidPosition(FVector pos);
 
+	UFUNCTION(BlueprintCallable)
+	FVector calculateOffset(FVector gridLocation);
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
