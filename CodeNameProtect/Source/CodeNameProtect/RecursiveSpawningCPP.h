@@ -62,6 +62,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 	FIntVector translatePositionToRowsAndCols(float X, float Y, float Z);
 
+	UFUNCTION(BlueprintCallable)
+	void reset();
+
+	UFUNCTION(BlueprintCallable)
+	bool isValidPosition(FVector pos);
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
