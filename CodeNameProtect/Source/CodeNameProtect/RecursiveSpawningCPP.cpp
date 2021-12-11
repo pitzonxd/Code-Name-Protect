@@ -158,6 +158,9 @@ FVector URecursiveSpawningCPP::calculateOffset(FVector gridLocation) {
     float posX = (float)((int)gridLocation.X % 200) - 100.0;
     float posY = (float)((int)gridLocation.Y % 200) - 100.0;
 
+    if(posX < 0) posX += 200.0;
+    if(posY < 0) posY += 200.0; 
+
     if(this->rows % 2 != 0) posX += 100.0;
     if(this->cols % 2 != 0) posY += 100.0;
 
