@@ -1,21 +1,34 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{39DFE0BD-4FA0-F57F-3C60-0D91A35593CB}",
+	"EngineAssociation": "{0004792F-08D9-B8E7-3577-5D0AA26FAFA0}",
 	"Category": "",
 	"Description": "",
 	"Modules": [
 		{
 			"Name": "CodeNameProtect",
 			"Type": "Runtime",
-			"LoadingPhase": "Default",
-			"AdditionalDependencies": [
-				"Engine"
-			]
+			"LoadingPhase": "Default"
 		}
 	],
 	"Plugins": [
 		{
 			"Name": "ApexDestruction",
+			"Enabled": true
+		},
+		{
+			"Name": "AdvancedSessions",
+			"Enabled": true
+		},
+		{
+			"Name": "AdvancedSteamSessions",
+			"Enabled": true
+		},
+		{
+			"Name": "Landmass",
+			"Enabled": true
+		},
+		{
+			"Name": "Water",
 			"Enabled": true
 		}
 	]
