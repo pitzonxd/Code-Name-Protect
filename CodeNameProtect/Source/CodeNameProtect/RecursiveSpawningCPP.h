@@ -71,6 +71,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	FVector calculateOffset(FVector gridLocation);
 
+	UFUNCTION(BlueprintCallable)
+	void getAllSpawnFunctions(int pRows, int pCols, FVector pRealOrigin);
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;

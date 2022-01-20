@@ -166,3 +166,12 @@ FVector URecursiveSpawningCPP::calculateOffset(FVector gridLocation) {
 
     return FVector(posX, posY, 0.0f);
 }
+
+
+void URecursiveSpawningCPP::getAllSpawnFunctions(int rows, int cols, FVector realOrigin) {
+    /*
+    TArray<FVector> allTilePositions;;
+
+    return allTilePositions;
+    */
+}
