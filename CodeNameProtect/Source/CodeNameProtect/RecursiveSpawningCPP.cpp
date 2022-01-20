@@ -168,10 +168,19 @@ FVector URecursiveSpawningCPP::calculateOffset(FVector gridLocation) {
 }
 
 
-void URecursiveSpawningCPP::getAllSpawnFunctions(int rows, int cols, FVector realOrigin) {
-    /*
+TArray<FVector> URecursiveSpawningCPP::getAllSpawnFunctions(int pRows, int pCols, FVector pRealOrigin) {
     TArray<FVector> allTilePositions;;
+    FVector tmpVector;
+
+    for(int i = 0; i < pRows; i++) {
+        for(int j = 0; j < pCols; j++) {
+            tmpVector.X = float(i) * 200 + realOrigin.X;
+            tmpVector.Y = float(j) * 200 + realOrigin.Y;
+            tmpVector.Z = pRealOrigin.Z;
+
+            allTilePositions.Add(tmpVector);
+        }
+    }
 
     return allTilePositions;
-    */
 }
