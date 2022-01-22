@@ -1,13 +1,16 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "4.26",
+	"EngineAssociation": "{0004F0A6-08D9-C192-5B23-ECF4A36A920F}",
 	"Category": "",
 	"Description": "",
 	"Modules": [
 		{
 			"Name": "CodeNameProtect",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
 		}
 	],
 	"Plugins": [
